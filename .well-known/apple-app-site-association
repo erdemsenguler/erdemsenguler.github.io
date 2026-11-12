@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["PJ353M66S2.com.erdemsenguler.zikirmatik"],
+        "components": [
+          { "/": "/hatim/*", "comment": "Ortak hatim daveti" },
+          { "/": "/hedef/*", "comment": "Ortak zikir hedefi daveti" }
+        ]
+      }
+    ]
+  }
+}

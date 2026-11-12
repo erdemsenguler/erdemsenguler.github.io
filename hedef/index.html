@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zikirmatik — Ortak zikre davet</title>
+<meta property="og:title" content="Zikirmatik — Ortak zikre davet">
+<meta property="og:description" content="Bir ortak zikir hedefine davet edildin. Herkes kendi telefonundan sayar, toplam birlikte büyür.">
+<style>
+  :root { --paper:#F1ECE2; --alt:#E8E1D3; --ink:#1D1B18; --muted:#5F584E; --line:#CFC6B5; --accent:#8E2F1F; --on:#F7F2EA; }
+  @media (prefers-color-scheme: dark) { :root { --paper:#12100E; --alt:#1C1916; --ink:#EDE6D8; --muted:#A39A8B; --line:#34302A; --accent:#D9805F; --on:#12100E; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.6 -apple-system, system-ui, sans-serif; }
+  main { max-width:520px; margin:0 auto; padding:56px 20px 64px; }
+  .eyebrow { font-size:13px; color:var(--muted); letter-spacing:.04em; }
+  h1 { font:400 38px/1.1 "New York", Georgia, serif; margin:8px 0 14px; }
+  p { margin:0 0 14px; }
+  .code { font:500 30px/1 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing:.12em; padding:18px 0; margin:22px 0;
+          border-top:1px solid var(--line); border-bottom:1px solid var(--line); text-align:center; }
+  .btn { display:block; text-align:center; text-decoration:none; padding:15px 18px; border-radius:6px; font-weight:600; margin:10px 0; }
+  .primary { background:var(--accent); color:var(--on); }
+  .secondary { border:1px solid var(--ink); color:var(--ink); }
+  .muted { color:var(--muted); font-size:14px; }
+  footer { margin-top:40px; font-size:13px; color:var(--muted); }
+  footer a { color:var(--muted); }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">ZİKİRMATİK</div>
+  <h1>Ortak zikre davet</h1>
+  <p>Bir ortak zikir hedefine davet edildin. Herkes kendi telefonundan sayar, toplam birlikte büyür.</p>
+
+  <div id="invite">
+    <div class="code" id="code" aria-label="Katılım kodu"></div>
+    <a class="btn primary" id="open" href="#">Zikirmatik’te aç</a>
+    <a class="btn secondary" id="store" href="#" hidden>App Store’dan indir</a>
+    <p class="muted" id="soon">Zikirmatik yakında App Store’da.</p>
+    <p class="muted">Uygulama yüklüyse bu bağlantı onu doğrudan açar. Değilse uygulamayı kurup bu sayfadaki “Zikirmatik’te aç” düğmesine yeniden bas.</p>
+  </div>
+  <p id="invalid" hidden>Bu bağlantı eksik ya da hatalı. Seni davet eden kişiden bağlantıyı yeniden göndermesini iste.</p>
+
+  <footer><a href="/privacy.html">Gizlilik</a> · <a href="/support.html">Destek</a></footer>
+</main>
+<script>
+  // Uygulama App Store'a çıkınca buraya bağlantısını yaz: "https://apps.apple.com/app/id1234567890"
+  var APP_STORE_URL = "";
+
+  var params = new URLSearchParams(location.search);
+  var key = (params.get("k") || "").trim();
+  var valid = /^[0-9A-Fa-f-]{36}$/.test(key);
+  if (!valid) {
+    document.getElementById("invite").hidden = true;
+    document.getElementById("invalid").hidden = false;
+  } else {
+    document.getElementById("code").textContent = key;
+    document.getElementById("open").href = "zikirmatik://goal/" + encodeURIComponent(key);
+    if (APP_STORE_URL) {
+      var store = document.getElementById("store");
+      store.href = APP_STORE_URL;
+      store.hidden = false;
+      document.getElementById("soon").hidden = true;
+    }
+  }
+</script>
+</body>
+</html>
