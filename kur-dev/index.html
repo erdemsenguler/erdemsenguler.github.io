@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Zikirmatik Test Kurulumu</title>
+<style>
+  :root { --paper:#F1ECE2; --ink:#1D1B18; --muted:#5F584E; --line:#CFC6B5; --accent:#8E2F1F; --on:#F7F2EA; }
+  @media (prefers-color-scheme: dark) { :root { --paper:#12100E; --ink:#EDE6D8; --muted:#A39A8B; --line:#34302A; --accent:#D9805F; --on:#12100E; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.6 -apple-system, system-ui, sans-serif; }
+  main { max-width:520px; margin:0 auto; padding:56px 20px 64px; }
+  .eyebrow { font-size:13px; color:var(--muted); letter-spacing:.04em; }
+  h1 { font:400 34px/1.15 "New York", Georgia, serif; margin:8px 0 14px; }
+  .btn { display:block; text-align:center; text-decoration:none; padding:15px 18px; border-radius:6px; font-weight:600; margin:22px 0; background:var(--accent); color:var(--on); }
+  ol { padding-left:20px; } li { margin-bottom:8px; }
+  .muted { color:var(--muted); font-size:14px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">ZİKİRMATİK · GELİŞTİRME SÜRÜMÜ</div>
+  <h1>Geliştirme sürümü</h1>
+  <p>Bu sayfayı iPhone'da <strong>Safari</strong> ile aç.</p>
+  <a class="btn" href="itms-services://?action=download-manifest&amp;url=https://erdemsenguler.github.io/kur-dev/manifest.plist">Zikirmatik'i yükle</a>
+  <ol>
+    <li>"Yükle"ye bas, açılan soruda tekrar <strong>Yükle</strong>'yi seç.</li>
+    <li>Ana ekrana dön; simge birkaç saniye içinde iner.</li>
+    <li>Telefonda TestFlight sürümü varsa önce onu sil.</li>
+  </ol>
+  <p class="muted">Yalnızca geliştiricinin Apple hesabına kayıtlı telefonlara kurulur. Diğer telefonlarda "kurulamadı" hatası verir.</p>
+</main>
+</body>
+</html>
